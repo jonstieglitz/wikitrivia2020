@@ -3,9 +3,7 @@ import { createWikimediaImage } from "./image";
 
 export function getRandomItem(deck: Item[], played: Item[]): Item {
   const periods: [number, number][] = [
-    [-100000, 1000],
-    [1000, 1800],
-    [1800, 2020],
+    [2000, 2022],
   ];
   const [fromYear, toYear] =
     periods[Math.floor(Math.random() * periods.length)];
