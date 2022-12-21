@@ -25,6 +25,7 @@ export default function Game() {
         .map((line) => {
           return JSON.parse(line);
         })
+        .filter((item) => !(item.year < 2000))
         // Filter out questions which give away their answers
         .filter((item) => !item.label.includes(String(item.year)))
         .filter((item) => !item.description.includes(String(item.year)))
