@@ -2,9 +2,7 @@ import { Item, PlayedItem } from "../types/item";
 import { createWikimediaImage } from "./image";
 
 export function getRandomItem(deck: Item[], played: Item[]): Item {
-  const periods: [number, number][] = [
-    [2000, 2022],
-  ];
+  const periods: [number, number][] = [[2000, 2022]];
   const [fromYear, toYear] =
     periods[Math.floor(Math.random() * periods.length)];
   const avoidPeople = Math.random() > 0.5;
@@ -28,9 +26,8 @@ export function getRandomItem(deck: Item[], played: Item[]): Item {
 }
 
 function tooClose(item: Item, played: Item[]) {
-  let distance = (played.length < 40) ? 5 : 1;
-  if (played.length < 11)
-    distance = 110 - 10 * played.length;
+  let distance = played.length < 40 ? 5 : 1;
+  if (played.length < 11) distance = 110 - 10 * played.length;
 
   return played.some((p) => Math.abs(item.year - p.year) < distance);
 }
@@ -46,6 +43,10 @@ export function checkCorrect(
   });
 
   if (index !== correctIndex) {
+    if (sorted[index].year === sorted[correctIndex].year) {
+      return { correct: true, delta: correctIndex - index };
+    }
+
     return { correct: false, delta: correctIndex - index };
   }
 
