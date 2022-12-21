@@ -23,7 +23,6 @@ function Heart(props: HeartProps) {
       className={styles.heart}
       style={{ opacity, scale }}
       src="https://upload.wikimedia.org/wikipedia/en/b/b4/Obama_logomark.svg"
-<!--       src="/images/heart.svg" -->
     />
   );
 }
