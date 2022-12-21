@@ -22,7 +22,8 @@ function Heart(props: HeartProps) {
     <animated.img
       className={styles.heart}
       style={{ opacity, scale }}
-      src="/images/heart.svg"
+      src="https://upload.wikimedia.org/wikipedia/en/b/b4/Obama_logomark.svg"
+<!--       src="/images/heart.svg" -->
     />
   );
 }
